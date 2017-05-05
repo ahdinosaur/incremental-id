@@ -1,9 +1,9 @@
 const test = require('tape')
 
-const ClientId = require('../')
+const IncrementalId = require('../')
 
-test('client-id', function (t) {
-  t.ok(ClientId, 'module is require-able')
+test('incremental-id', function (t) {
+  t.ok(IncrementalId, 'module is require-able')
   t.end()
 })
 
@@ -15,10 +15,10 @@ test('first 20 client ids', t => {
     '10', '11', '12', '13', '14'
   ]
   var actual = []
-  ClientId.initialValue = '0'
-  ClientId.previous = null
+  IncrementalId.initialValue = '0'
+  IncrementalId.previous = null
   for (var i = 0; i < 20; i++) {
-    actual.push(ClientId())
+    actual.push(IncrementalId())
   }
   t.deepEqual(actual, expected, 'actual is expected')
   t.end()
@@ -32,12 +32,12 @@ test('0xfffffff rollover', t => {
     '100000001'
   ]
   var actual = []
-  ClientId.initialValue = 'fffffffd'
-  ClientId.previous = null
-  actual.push(ClientId())
-  actual.push(ClientId())
-  actual.push(ClientId())
-  actual.push(ClientId())
+  IncrementalId.initialValue = 'fffffffd'
+  IncrementalId.previous = null
+  actual.push(IncrementalId())
+  actual.push(IncrementalId())
+  actual.push(IncrementalId())
+  actual.push(IncrementalId())
   t.deepEqual(actual, expected, 'actual is expected')
   t.end()
 })
@@ -50,12 +50,12 @@ test('larger than Number.MAX_SAFE_INTEGER', t => {
     '20000000000001'
   ]
   var actual = []
-  ClientId.initialValue = '1ffffffffffffd'
-  ClientId.previous = null
-  actual.push(ClientId())
-  actual.push(ClientId())
-  actual.push(ClientId())
-  actual.push(ClientId())
+  IncrementalId.initialValue = '1ffffffffffffd'
+  IncrementalId.previous = null
+  actual.push(IncrementalId())
+  actual.push(IncrementalId())
+  actual.push(IncrementalId())
+  actual.push(IncrementalId())
   t.deepEqual(actual, expected, 'actual is expected')
   t.end()
 })

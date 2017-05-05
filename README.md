@@ -1,4 +1,4 @@
-# client-id
+# incremental-id
 
 unique client ids using monotonic increasing numbers with no upper bound.
 
@@ -7,17 +7,17 @@ only unique for a single client during a single session, not across clients or s
 based on code from [`bigeasy/monotonic`](https://github.com/bigeasy/monotonic)
 
 ```shell
-npm install --save client-id
+npm install --save incremental-id
 ```
 
 ## example
 
 ```js
-const ClientId = require('client-id')
+const IncrementalId = require('incremental-id')
 
 while (true) {
-  const clientId = ClientId()
-  process.stdout.write(clientId + ' ')
+  const incrementalId = IncrementalId()
+  process.stdout.write(incrementalId + ' ')
 }
 
 // 0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 15 16
@@ -28,11 +28,11 @@ while (true) {
 
 ## usage
 
-### `ClientId = require('client-id')`
+### `IncrementalId = require('incremental-id')`
 
-### `clientId = ClientId()`
+### `incrementalId = IncrementalId()`
 
-`clientId` returned will be a string, so we are not bounded by [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)
+`incrementalId` returned will be a string, so we are not bounded by [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)
 
 ## license
 

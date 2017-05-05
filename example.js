@@ -1,7 +1,7 @@
-const ClientId = require('./')
+const IncrementalId = require('./')
 
 function loop () {
-  process.stdout.write(ClientId() + ' ')
+  process.stdout.write(IncrementalId() + ' ')
   setImmediate(loop)
 }
 

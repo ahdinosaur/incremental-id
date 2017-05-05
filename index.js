@@ -1,8 +1,8 @@
-module.exports = ClientId
+module.exports = IncrementalId
 module.exports.initialValue = '0'
 module.exports.previous
 
-function ClientId () {
+function IncrementalId () {
   var previous = module.exports.previous
   if (previous == null) {
     module.exports.previous = previous = toWords(module.exports.initialValue)
